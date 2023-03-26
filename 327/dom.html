@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dom.css">
+</head>
+<body>
+    <div id="parent"></div>
+
+    <script>
+     let parent = document.querySelector('#parent');
+     let arr = [1, 2, 3, 4, 5];
+    
+     for (let elem of arr) {
+       let p = document.createElement('p');
+       p.textContent = elem;
+       parent.appendChild(p);
+    
+       // добавляем обработчик клика на каждый абзац
+       p.addEventListener('click', function () {
+         // получаем текущее значение абзаца
+         let currentValue = parseInt(this.textContent);
+         // увеличиваем значение на 1
+         let newValue = currentValue + 1;
+         // изменяем содержимое абзаца
+         this.textContent = newValue;
+       });
+     }
+    </script>
+    
+</body>
+</html>
